@@ -3,16 +3,18 @@ pipeline {
 
     stages {
         stage('Build') {
-			withEnv(["JAVA_HOME=${ tool '"+JDK+"' }", "PATH=${env.JAVA_HOME}/bin"]) { 
+			steps {
+				withEnv(["JAVA_HOME=${ tool '"+JDK+"' }", "PATH=${env.JAVA_HOME}/bin"]) { 
 
-				withMaven(jdk: '(Hérite du job)', maven: 'mvn') { 
+					withMaven(jdk: '(Hérite du job)', maven: 'mvn') { 
 			 			if(isUnix()) {
 			 				sh "mvn -f back clean install spring-boot:repackage " 
 						} else { 
 			 				bat "mvn -f back clean install spring-boot:repackage " 
 						}
-        		}
-			}
+        			}
+				}
+			}	
 		}		
 		
         stage('Test') {
