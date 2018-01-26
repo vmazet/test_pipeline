@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
 			    sh """ 
-			    cd $WORKSPACE/front/apptest;npm install; npm run build;
+			    cd $WORKSPACE/apptest;npm install; npm run build;
 			    """
             }
         }
