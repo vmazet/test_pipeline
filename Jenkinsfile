@@ -8,12 +8,16 @@ pipeline {
 
 					//withMaven(jdk: '(Hérite du job)', maven: 'mvn') { 
 			 			//if(isUnix()) {
-			 				sh "mvn clean package -DskipTests" 
+			 			//	sh "mvn clean package -DskipTests" 
 						//} else { 
 			 			//	bat "mvn -f back clean install spring-boot:repackage " 
 						//}
         			//}
 				//}
+				
+				sh """ 
+				cd $WORKSPACE/apptest;npm install; npm run build;cd ..;
+				 ""
 			}	
 		}		
 		
