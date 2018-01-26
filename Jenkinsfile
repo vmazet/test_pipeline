@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+				checkout scm
 			    sh """ 
 			    cd $WORKSPACE/apptest;npm install; npm run build;
 			    """
@@ -11,7 +12,9 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+			    withSonarQubeEnv {
+			        sh "./gradlew clean sonarqube"
+			    }
             }
         }
         stage('Deploy') {
