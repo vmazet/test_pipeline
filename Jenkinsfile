@@ -25,7 +25,7 @@ node('node') {
 	    }
 
 
-    
+    }
     catch (err) {
 
         currentBuild.result = "FAILURE"
