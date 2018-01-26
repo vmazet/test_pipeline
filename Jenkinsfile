@@ -7,24 +7,25 @@ node('node') {
 
     try {
 
-	   stage('Build') {
-	               steps {
-	                   echo 'Building..'
-	               }
-	           }
-	           stage('Test') {
-	               steps {
-	                   echo 'Testing..'
-	               }
-	           }
-	           stage('Deploy') {
-	               steps {
-	                   echo 'Deploying....'
-	               }
-	           }
+	  
+		stage('Build') {
+			echo 'Building..'
+	    }
+	           
+	    stage('Test') {
+	              
+	     	echo 'Testing..'
+	               
+	    }
+		
+	    stage('Deploy') {
+	         
+	        echo 'Deploying....'
+	               
+	    }
 
 
-    }
+    
     catch (err) {
 
         currentBuild.result = "FAILURE"
