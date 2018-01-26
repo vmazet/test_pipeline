@@ -5,7 +5,7 @@ node('node') {
 
     currentBuild.result = "SUCCESS"
 
-    try {
+    //try {
 
 	  
 		stage('Build') {
@@ -25,12 +25,12 @@ node('node') {
 	    }
 
 
-    }
-    catch (err) {
-
-        currentBuild.result = "FAILURE"
-		echo 'FAILURE'
-        throw err
-    }
-
+    /*}
+    *catch (err) {
+	*
+    *    currentBuild.result = "FAILURE"
+	*	echo 'FAILURE'
+    *    throw err
+    *}
+	*/
 }
