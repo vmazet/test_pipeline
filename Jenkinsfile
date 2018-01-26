@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
 			steps {
-				withEnv() { 
+				//withEnv() { 
 
 					withMaven(jdk: '(Hérite du job)', maven: 'mvn') { 
 			 			//if(isUnix()) {
@@ -13,7 +13,7 @@ pipeline {
 			 			//	bat "mvn -f back clean install spring-boot:repackage " 
 						//}
         			}
-				}
+				//}
 			}	
 		}		
 		
