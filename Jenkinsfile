@@ -6,13 +6,13 @@ pipeline {
 			steps {
 				//withEnv() { 
 
-					withMaven(jdk: '(Hérite du job)', maven: 'mvn') { 
+					//withMaven(jdk: '(Hérite du job)', maven: 'mvn') { 
 			 			//if(isUnix()) {
 			 				sh "mvn clean package -DskipTests" 
 						//} else { 
 			 			//	bat "mvn -f back clean install spring-boot:repackage " 
 						//}
-        			}
+        			//}
 				//}
 			}	
 		}		
