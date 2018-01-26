@@ -1,36 +1,21 @@
-#!groovy
+pipeline {
+    agent any
 
-node('node') {
-
-
-    currentBuild.result = "SUCCESS"
-
-    //try {
-
-	  
-		stage('Build') {
-			echo 'Building..'
-	    }
-	           
-	    stage('Test') {
-	              
-	     	echo 'Testing..'
-	               
-	    }
-		
-	    stage('Deploy') {
-	         
-	        echo 'Deploying....'
-	               
-	    }
-
-
-    /*}
-    *catch (err) {
-	*
-    *    currentBuild.result = "FAILURE"
-	*	echo 'FAILURE'
-    *    throw err
-    *}
-	*/
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
 }
