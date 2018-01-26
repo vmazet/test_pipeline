@@ -7,11 +7,11 @@ pipeline {
 				withEnv(["JAVA_HOME=${ tool '"+JDK+"' }", "PATH=${env.JAVA_HOME}/bin"]) { 
 
 					withMaven(jdk: '(Hérite du job)', maven: 'mvn') { 
-			 			if(isUnix()) {
+			 			//if(isUnix()) {
 			 				sh "mvn -f back clean install spring-boot:repackage " 
-						} else { 
-			 				bat "mvn -f back clean install spring-boot:repackage " 
-						}
+						//} else { 
+			 			//	bat "mvn -f back clean install spring-boot:repackage " 
+						//}
         			}
 				}
 			}	
