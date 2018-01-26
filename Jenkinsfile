@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
 			steps {
-				withEnv(["JAVA_HOME=${ tool '"+JDK+"' }", "PATH=${env.JAVA_HOME}/bin"]) { 
+				withEnv() { 
 
 					withMaven(jdk: '(Hérite du job)', maven: 'mvn') { 
 			 			//if(isUnix()) {
