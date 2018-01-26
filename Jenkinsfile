@@ -7,14 +7,7 @@ node('node') {
 
     try {
 
-	   stages {
-	   
-
-			   stage ('phileas - Checkout') {
-			 	   checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], url: 'https://github.com/vmazet/test_pipeline.git'])
-		       }
-	   
-	           stage('Build') {
+	   stage('Build') {
 	               steps {
 	                   echo 'Building..'
 	               }
@@ -29,8 +22,6 @@ node('node') {
 	                   echo 'Deploying....'
 	               }
 	           }
-	       }
-
 
 
     }
