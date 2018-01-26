@@ -9,7 +9,6 @@ pipeline {
 				npm install; 
 				npm run build;
 			    cd ..;
-			    //docker build -t demo.veltys.com/pipeline_test:latest .;  //permet de créer une image docker
 			    """
             }
 			
