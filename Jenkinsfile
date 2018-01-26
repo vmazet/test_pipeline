@@ -4,7 +4,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'build..'
+			    sh """ 
+			    cd $WORKSPACE/front/apptest;npm install; npm run build;
+			    """
             }
         }
         stage('Test') {
