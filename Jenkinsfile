@@ -8,7 +8,7 @@ pipeline {
 
 					withMaven(jdk: '(Hérite du job)', maven: 'mvn') { 
 			 			//if(isUnix()) {
-			 				sh "mvn -f back clean install spring-boot:repackage " 
+			 				sh "mvn clean package -DskipTests" 
 						//} else { 
 			 			//	bat "mvn -f back clean install spring-boot:repackage " 
 						//}
