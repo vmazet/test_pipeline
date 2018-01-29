@@ -26,17 +26,23 @@ pipeline {
 		
 		stage('Smoke') {
 		       
-		      sh "mvn clean verify -Dtags='type:Smoke'"
+		      sh """
+			  mvn clean verify -Dtags='type:Smoke';
+			  """
 		        
 		   }
 		   stage('API') {
 		      steps {  
-		      	sh "mvn clean verify -Dtags='type:API'"
+		      	sh """
+				mvn clean verify -Dtags='type:API';
+				"""
 		      }  
 		   }
 		   stage('UI') {
 		      steps {
-		     	 sh "mvn verify -Dtags='type:UI'"
+		     	 sh """
+				 mvn verify -Dtags='type:UI';
+				 """
 		       } 
 		   }
 		   stage('Results') {
