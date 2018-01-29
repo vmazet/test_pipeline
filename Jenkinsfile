@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+	export JVM_ARGS="-Xms512m -Xmx1024m"
     stages {
         stage('Build') {
             steps {
@@ -16,7 +16,6 @@ pipeline {
 		
 		stage('Performance Tests') {
 			steps {
-			export JVM_ARGS="-Xms512m -Xmx1024m"
 		    	parallel(
 		        	BlazeMeterTest: {
 		            	dir ('Taurus-Repo') {
