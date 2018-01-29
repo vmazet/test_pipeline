@@ -16,10 +16,11 @@ pipeline {
 		
 		stage('Performance Tests') {
 			steps {
+			export JVM_ARGS="-Xms512m -Xmx1024m"
 		    	parallel(
 		        	BlazeMeterTest: {
 		            	dir ('Taurus-Repo') {
-		               	 	sh 'bzt test.yml -report'
+		               	 	sh 'bzt $WORKSPACE/test.yml -report'
 		            	}
 		        	},
 		        	Analysis: {
