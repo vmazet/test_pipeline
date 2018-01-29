@@ -25,16 +25,18 @@ pipeline {
         }
 		
 		stage('Performance Tests') {
-		    parallel(
-		        BlazeMeterTest: {
-		            dir ('Taurus-Repo') {
-		                sh 'bzt test.yml -report'
-		            }
-		        },
-		        Analysis: {
-		            sleep 60
-		        })
-		   }
+			steps {
+		    	parallel(
+		        	BlazeMeterTest: {
+		            	dir ('Taurus-Repo') {
+		               	 	sh 'bzt test.yml -report'
+		            	}
+		        	},
+		        	Analysis: {
+		            	sleep 60
+		        	})
+			}		
+	   }
 		
 		stage('Smoke') {
 		     steps {
