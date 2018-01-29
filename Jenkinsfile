@@ -27,9 +27,7 @@ pipeline {
 		stage('Smoke') {
 		     steps {
 			 	git 'https://github.com/BushnevYuri/e2e-automation-pipeline.git'
-			 	withMaven(jdk: '(Hérite du job)'){
-					sh "mvn clean verify -Dtags='type:Smoke';"
-				}
+			 	sh "mvn clean verify -Dtags='type:Smoke'"
 		     }   
 		   }
 		   stage('API') {
