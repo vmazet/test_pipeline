@@ -13,20 +13,6 @@ pipeline {
 			
         }
 		
-		stage('Performance Tests') {
-			steps {
-		    	parallel(
-		        	BlazeMeterTest: {
-		            	dir ('Taurus-Repo') {
-		               	 	sh 'bzt $WORKSPACE/test.yml -report'
-		            	}
-		        	},
-		        	Analysis: {
-		            	sleep 60
-		        	})
-			}		
-	   }
-		
 		stage('Smoke') {
 		     steps {
 			 	git 'https://github.com/BushnevYuri/e2e-automation-pipeline.git'
