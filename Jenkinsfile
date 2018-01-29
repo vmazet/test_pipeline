@@ -1,6 +1,5 @@
 pipeline {
     agent any
-	export JVM_ARGS="-Xms512m -Xmx1024m"
     stages {
         stage('Build') {
             steps {
