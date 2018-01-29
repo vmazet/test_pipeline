@@ -25,11 +25,11 @@ pipeline {
         }
 		
 		stage('Smoke') {
-		       
+		     steps {
 		      sh """
 			  mvn clean verify -Dtags='type:Smoke';
 			  """
-		        
+		     }   
 		   }
 		   stage('API') {
 		      steps {  
