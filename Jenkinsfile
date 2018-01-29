@@ -1,5 +1,6 @@
 pipeline {
     agent any
+
     stages {
         stage('Build') {
             steps {
@@ -12,6 +13,17 @@ pipeline {
             }
 			
         }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+		
 		
 		stage('Smoke') {
 		     steps {
@@ -28,13 +40,7 @@ pipeline {
 				}
 		      }  
 		   }
-		   stage('UI') {
-		      steps {
-			 	withMaven(maven:'mvn'){
-					sh "mvn clean verify -Dtags='type:UI';"
-				}
-		       } 
-		   }
+		   
 		   stage('Results') {
 		   	  steps {
 		      	junit '**/target/failsafe-reports/*.xml'
